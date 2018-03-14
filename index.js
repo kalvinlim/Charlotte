@@ -56,6 +56,9 @@ function dispatch(intentRequest, callback) {
             var formattedStatus = formatStatus(status);
             callback(close(sessionAttributes, 'Fulfilled',
                 {'contentType': 'PlainText', 'content': `${formattedStatus}`}));
+        }).catch(function (err) {
+            callback(close(sessionAttributes, 'Fulfilled',
+                {'contentType': 'PlainText', 'content': `err`}));
         });
     }
 
