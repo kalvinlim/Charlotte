@@ -3,8 +3,10 @@
 const q = require('q');
 const rp = require("request-promise");
 const _ = require('lodash');
-const apiKey = '';
-const baseUrl = '';     
+const path    = require("path");
+const config = require(path.normalize(__dirname + "/config.js"));
+const apiKey = config.apiKey;
+const baseUrl = config.baseUrl;
 
 function close(sessionAttributes, fulfillmentState, message) {
     return {
